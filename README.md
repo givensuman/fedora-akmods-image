@@ -14,10 +14,22 @@ although you probably don't want that as this image does not have a graphical en
 
 For most uses, this will be a layer in custom images:
 
-```bash
+```Dockerfile
 FROM ghcr.io/givensuman/fedora-akmods-image
 
 RUN dnf5 -y install @gnome-desktop
+
+RUN bootc container lint
+```
+
+or as a build step, using the following exported overlay:
+
+```Dockerfile
+FROM ghcr.io/givensuman/fedora-akmods-image AS akmods
+FROM quay.io/fedora/fedora-silverblue
+
+COPY --from=akmods /usr/share/modules/akmods /tmp/modules/akmods
+RUN /tmp/modules/akmods/apply.sh && rm -rf /tmp/modules
 
 RUN bootc container lint
 ```
