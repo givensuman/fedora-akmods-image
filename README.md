@@ -34,7 +34,7 @@ RUN /tmp/modules/akmods/apply.sh && rm -rf /tmp/modules
 RUN bootc container lint
 ```
 
-### Why? 
+### Why?
 
 This is essentially (an attempt at) Universal Blue's [base-main](https://github.com/ublue-os/main) image re-created in aggregate in order to build my own images off of it with much of the overhead removed.
 
