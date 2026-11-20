@@ -29,7 +29,7 @@ cp -a "${here}/files/." /
 # Rescue/emergency mode works with Fedora's locked root
 # https://github.com/ublue-os/main/blob/main/build_files/install.sh
 chmod +x /usr/lib/systemd/system-generators/coreos-sulogin-force-generator
-systemctl enable bootc-update-ca-trust.service bootc-update-crypto-policies.service getty@tty1.service
+systemctl enable bootc-update-crypto-policies.service getty@tty1.service
 
 dnf5 clean all
 rm -rf /var/cache/* /var/lib/dnf /var/log/dnf5.log* /run/dnf
